@@ -14,7 +14,7 @@ class Users extends Component
 
     public function delete($id)
     {
-        user::find($id)->delete();
+        User::find($id)->delete();
         session()->flash('message','Customer Deleted Successfully!');
     }
     public function render()

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\cart;
+use App\Models\Cart;
 use Livewire\Component;
 
 class ProductMenuCart extends Component
@@ -21,7 +21,7 @@ class ProductMenuCart extends Component
         if (!auth()->id()) {
             return redirect()->route('login');
         }
-        cart::create([
+        Cart::create([
             'user_id' => auth()->id(),
             'product_id' => $this->Id
         ]);

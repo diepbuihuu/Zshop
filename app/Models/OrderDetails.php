@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class order_details extends Model
+class OrderDetails extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -17,10 +17,10 @@ class order_details extends Model
     ];
 
     public function order(){
-        return $this->belongsTo(order::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function product(){
-        return $this->belongsTo(product::class);
+        return $this->belongsTo(Product::class);
     }
 }

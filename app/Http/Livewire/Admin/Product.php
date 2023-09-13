@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\category;
-use App\Models\product as productModel;
-use App\Models\product_category;
+use App\Models\Category;
+use App\Models\Product as productModel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic;
@@ -85,7 +84,7 @@ class Product extends Component
         $image   = ImageManagerStatic::make($img)->encode('jpg');
         $name  = Str::random() . '.jpg';
         Storage::disk('public')->put($name, $image);
-        return 'storage/'.$name;
+        return $name;
     }
 
     public function edit($id)
@@ -125,7 +124,7 @@ class Product extends Component
             $this->validate([
                 'image' => 'image|max:3072',
             ]);
-            unlink($product->image);
+
             $product->image = $this->storeImage($this->image);
 
         }
@@ -133,7 +132,7 @@ class Product extends Component
             $this->validate([
                 'thumbnail' => 'image|max:3072',
             ]);
-            unlink($product->thumbnail);
+
             $product->thumbnail = $this->storeImage($this->thumbnail);
 
         }
@@ -158,15 +157,7 @@ class Product extends Component
 
     public function delete($id)
     {
-        product_category::where('product_id' , $id)->delete();
         $product = productModel::findOrFail($id);
-
-        if($product->thumbnail){
-            unlink($product->thumbnail);
-        }
-        if ($product->image) {
-            unlink($product->image);
-        }
 
         $product->delete();
         session()->flash('message', 'Deleted Successfully.');

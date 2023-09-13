@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class order extends Model
+class Order extends Model
 {
     use HasFactory;
     protected $fillable =[
@@ -19,11 +19,11 @@ class order extends Model
 
     public function user()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
     public function product()
     {
-        return $this->belongsTo(order_details::class);
+        return $this->belongsTo(OrderDetails::class);
     }
 
     /**
@@ -35,6 +35,6 @@ class order extends Model
     // }
     public function details()
     {
-        return $this->hasMany(order_details::class);
+        return $this->hasMany(OrderDetails::class);
     }
 }

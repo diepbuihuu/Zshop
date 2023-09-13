@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\likes;
+use App\Models\Likes;
 use Livewire\Component;
 
 class ProductMenuLike extends Component
@@ -20,7 +20,7 @@ class ProductMenuLike extends Component
         if (!auth()->id()) {
             return redirect()->route('login');
         }
-        likes::firstOrCreate([
+        Likes::firstOrCreate([
             'user_id' => auth()->id(),
             'product_id' =>$this->Id
         ]);

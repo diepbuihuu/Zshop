@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class likes extends Model
+class Likes extends Model
 {
     use HasFactory;
     protected $fillable =[
@@ -19,6 +19,6 @@ class likes extends Model
      */
     public function product()
     {
-        return $this->belongsTo(product::class,'product_id','id');
+        return $this->belongsTo(Product::class,'product_id','id');
     }
 }

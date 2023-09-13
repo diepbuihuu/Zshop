@@ -87,7 +87,7 @@
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
                                     <td><img width="50px" height="50px"
-                                            src="{{ config('app.url') . $category->thumbnail }}" alt="image"></td>
+                                            src="{{ Storage::url($category->thumbnail) }}" alt="image"></td>
                                     <td>{{ $category->created_at->format('d/m/y') }}</td>
                                     <td>
                                         <div class="btn-group">

@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\likes;
-use App\Models\product;
+use App\Models\Likes;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -14,7 +14,7 @@ class TrendeProducts extends Component
 
         //get 6 products that has most likes
 
-        $trendeProducts =likes::select('product_id', DB::raw('count(product_id) as counts'))
+        $trendeProducts = Likes::select('product_id', DB::raw('count(product_id) as counts'))
         ->groupBy('product_id')
         ->latest()
         ->where('created_at', '>=', now()->subMonth())

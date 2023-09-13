@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 use Livewire\WithPagination;
-use App\Models\faq as faqModel;
+use App\Models\Faq as faqModel;
 use Livewire\Component;
 
 class Faq extends Component
@@ -59,7 +59,7 @@ class Faq extends Component
         $this->button_text="Update FAQ";
     }
 
-    
+
     /*
     * Update FAQ by id
     */
@@ -69,7 +69,7 @@ class Faq extends Component
             'question' => 'required',
             'answer' => 'required',
         ]);
-        
+
         $faq = faqModel::findOrFail($id);
         $faq->question = $this->question;
         $faq->answer = $this->answer;

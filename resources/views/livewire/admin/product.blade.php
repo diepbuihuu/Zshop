@@ -173,7 +173,7 @@
                                     <td>{{ $Product->category_id }}</td>
 
                                     <td><img width="80px" height="80px"
-                                            src="{{ config('app.url') . $Product->image }}" alt="image"></td>
+                                            src="{{ Storage::url($Product->image) }}" alt="image"></td>
 
 
                                     <td>{{ $Product->created_at->format('d/m/y') }}</td>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\cart as cartModel;
+use App\Models\Cart as cartModel;
 use Livewire\Component;
 
 class Cart extends Component

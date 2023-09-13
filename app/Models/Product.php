@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -20,14 +20,14 @@ class product extends Model
     ];
 
     public function category(){
-        return $this->belongsTo(category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function likes(){
-        return $this->belongsTo(likes::class);
+        return $this->belongsTo(Likes::class);
     }
 
     public function order_details(){
-        return $this->hasMany(order_details::class);
+        return $this->hasMany(OrderDetails::class);
     }
 }

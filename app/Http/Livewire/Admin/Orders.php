@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\Admin;
-use App\Models\order as orderModel;
+use App\Models\Order as orderModel;
 use Livewire\Component;
 
 class Orders extends Component

@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\cart;
-use App\Models\order;
-use App\Models\order_details;
+use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderDetails;
 use Livewire\Component;
 
 class Checkout extends Component
@@ -27,19 +27,19 @@ class Checkout extends Component
             'card_expiry' => 'required',
         ]);
 
-        
+
         /*
         * Payment login goes here
         */
-        
-        
+
+
         /*
         * add product to orders table
         */
-        $productsInCart = cart::where('user_id',auth()->id())->get();
-        
+        $productsInCart = Cart::where('user_id',auth()->id())->get();
+
         foreach($productsInCart as $product){
-            $order = order::create([
+            $order = Order::create([
                 'user_id' => auth()->id(),
                 'amount' => $product->product->price,
                 'shipping_address' => auth()->user()->default_shipping_address,
@@ -47,23 +47,23 @@ class Checkout extends Component
                 'order_email' => auth()->user()->email,
                 'order_status' => 'processing',
             ]);
-            order_details::create([
+            OrderDetails::create([
                 'order_id' => $order->id,
                 'product_id' => $product->product_id,
                 'price' => $product->product->price,
                 'sku' => 'sku',
                 'quantity' => '1',
             ]);
-            
+
         }
 
         /*
         * now delete the products from the cart
         */
-        cart::where('user_id',auth()->id())->delete();
+        Cart::where('user_id',auth()->id())->delete();
 
         session()->flash('message', 'Order Placed Successfully.');
-        
+
         unset($this->card_number);
         unset($this->card_expiry);
         unset($this->card_cvc);
@@ -72,8 +72,8 @@ class Checkout extends Component
 
     public function removePrduct($id)
     {
-        cart::where('id',$id)->delete();
-        return $this->products = cart::where('user_id',auth()->id())->get();
+        Cart::where('id',$id)->delete();
+        return $this->products = Cart::where('user_id',auth()->id())->get();
     }
 
     public function apply_coupon_code()

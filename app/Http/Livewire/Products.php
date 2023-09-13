@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\product as productModel;
+use App\Models\Product as productModel;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,7 +13,7 @@ class Products extends Component
     public function product_liked($id)
     {
        if (auth()->user()) {
-           \App\Models\likes::create([
+           \App\Models\Likes::create([
                'user_id' => auth()->id(),
                'product_id' => $id
            ]);

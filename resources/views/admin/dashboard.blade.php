@@ -10,7 +10,7 @@
                         <div class="card bg-primary text-white mb-4">
                             <div class="card-body py-5">
                                 <h3>
-                                    <a class="small text-dark nav-link" href="{{ route("admin.products") }}">{{ "(".App\Models\product::count().") ". __(" Products") }}
+                                    <a class="small text-dark nav-link" href="{{ route("admin.products") }}">{{ "(".App\Models\Product::count().") ". __(" Products") }}
                                     </a>
                                     </h3>
                             </div>
@@ -20,7 +20,7 @@
                         <div class="card bg-warning text-white mb-4">
                             <div class="card-body py-5">
                                 <h3>
-                                    <a class="small text-dark nav-link" href="{{ route("admin.orders") }}">{{ "(".App\Models\order::count().") ". __(" Orders") }}
+                                    <a class="small text-dark nav-link" href="{{ route("admin.orders") }}">{{ "(".App\Models\Order::count().") ". __(" Orders") }}
                                     </a>
                                     </h3>
                             </div>
@@ -30,7 +30,7 @@
                         <div class="card bg-success text-white mb-4">
                             <div class="card-body py-5">
                                 <h3>
-                                    <a class="small text-dark nav-link" href="{{ route("admin.users") }}">{{ "(".App\Models\user::count().") ". __(" Users") }}
+                                    <a class="small text-dark nav-link" href="{{ route("admin.users") }}">{{ "(".App\Models\User::count().") ". __(" Users") }}
                                     </a>
                                     </h3>
                             </div>
@@ -40,7 +40,7 @@
                         <div class="card bg-info text-white mb-4">
                             <div class="card-body py-5">
                                 <h3>
-                                    <a class="small text-dark nav-link" href="{{ route("admin.messages") }}">{{ "(".App\Models\contactus::count().") ". __(" Messages") }}
+                                    <a class="small text-dark nav-link" href="{{ route("admin.messages") }}">{{ "(".App\Models\Contactus::count().") ". __(" Messages") }}
                                     </a>
                                     </h3>
                             </div>
@@ -50,7 +50,7 @@
                         <div class="card bg-warning text-white mb-4">
                             <div class="card-body py-5">
                                 <h3>
-                                    <a class="small text-dark nav-link" href="{{ route("admin.aboutUs") }}">{{ "(".App\Models\subscriber::count().") ". __(" Subscribers") }}
+                                    <a class="small text-dark nav-link" href="{{ route("admin.aboutUs") }}">{{ "(".App\Models\Subscriber::count().") ". __(" Subscribers") }}
                                     </a>
                                     </h3>
                             </div>

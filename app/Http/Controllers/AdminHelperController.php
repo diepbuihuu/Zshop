@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\user;
-use App\Models\likes;
-use App\Models\cart;
-use App\Models\aboutUs;
-use App\Models\order_details;
+use App\Models\User;
+use App\Models\Likes;
+use App\Models\Cart;
+use App\Models\AboutUs;
+use App\Models\OrderDetails;
 use Illuminate\Http\Request;
 
-class adminHelperController extends Controller
+class AdminHelperController extends Controller
 {
     public function showSingleCustomer($id)
     {
         return view('admin.user_details',[
-            'customer' => user::find($id)->first(),
-            'likes' => likes::where('user_id',$id)->get(),
+            'customer' => User::find($id)->first(),
+            'likes' => Likes::where('user_id',$id)->get(),
             'cartProducts' => cart::where('user_id',$id)->get(),
         ]);
     }
@@ -30,7 +30,7 @@ class adminHelperController extends Controller
             'content' => 'required'
         ]);
 
-        aboutUs::create(['content' => $request->content]);
+        AboutUs::create(['content' => $request->content]);
         return redirect()->back();
     }
     public function uploadCKEImage(Request $request)
@@ -42,13 +42,12 @@ class adminHelperController extends Controller
             $fileName = $fileName.'_'.time().'.'.$extension;
             $request->file('upload')->move(public_path('images'), $fileName);
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('images/'.$fileName); 
-            $msg = 'Image successfully uploaded'; 
+            $url = asset('images/'.$fileName);
+            $msg = 'Image successfully uploaded';
             $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
-               
-            @header('Content-type: text/html; charset=utf-8'); 
+
+            @header('Content-type: text/html; charset=utf-8');
             echo $response;
         }
     }
 }
-

@@ -18,7 +18,7 @@ class ContactUs extends Component
             'email' => 'required|email',
             'message' => 'required',
         ]);
-        \App\Models\contactus::create([
+        \App\Models\ContactUs::create([
             'name'         => $this->name,
             'subject'         => $this->subject,
             'email'         => $this->email,

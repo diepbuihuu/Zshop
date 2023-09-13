@@ -37,7 +37,7 @@ class Category extends Component
                 'thumbnail' => 'required|image',
             ]);
 
-            \App\Models\category::create([
+            \App\Models\Category::create([
                 'name'          => $this->name,
                 'description'         => $this->description,
                 'thumbnail'        =>   $this->storeImage($this->thumbnail),
@@ -61,7 +61,7 @@ class Category extends Component
         $image   = ImageManagerStatic::make($thumbnail)->encode('jpg');
         $name  = Str::random() . '.jpg';
         Storage::disk('public')->put($name, $image);
-        return 'storage/'.$name;
+        return $name;
     }
 
 
@@ -70,7 +70,7 @@ class Category extends Component
     */
     public function edit($id)
     {
-        $category = \App\Models\category::findOrFail($id);
+        $category = \App\Models\Category::findOrFail($id);
         $this->edit_category_id = $id;
 
         $this->name = $category->name;
@@ -91,17 +91,13 @@ class Category extends Component
             'description' => 'required',
         ]);
 
-        $category = \App\Models\category::findOrFail($id);
+        $category = \App\Models\Category::findOrFail($id);
         $category->name = $this->name;
         $category->description = $this->description;
         if ($this->thumbnail) {
             $this->validate([
                 'thumbnail' => 'image',
             ]);
-
-            if($category->thumbnail){
-                unlink($category->thumbnail);
-            }
 
             $category->thumbnail = $this->storeImage($this->thumbnail);
         }
@@ -120,10 +116,7 @@ class Category extends Component
 
     public function delete($id)
     {
-        $category = \App\Models\category::findOrFail($id);
-        if($category->thumbnail){
-            unlink($category->thumbnail);
-        }
+        $category = \App\Models\Category::findOrFail($id);
         $category->delete();
         session()->flash('message', 'Category Deleted Successfully.');
 
@@ -135,7 +128,7 @@ class Category extends Component
     public function render()
     {
         return view('livewire.admin.category',[
-            'categories' => \App\Models\category::latest()->paginate(5)
+            'categories' => \App\Models\Category::latest()->paginate(5)
         ])->layout('admin.layouts.wire_app');
     }
 }

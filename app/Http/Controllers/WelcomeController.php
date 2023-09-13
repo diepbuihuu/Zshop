@@ -1,31 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\category;
-use App\Models\faq;
-use App\Models\product;
-use App\Models\aboutUs;
+use App\Models\Category;
+use App\Models\Faq;
+use App\Models\Product;
+use App\Models\AboutUs;
 use Illuminate\Http\Request;
 
-class welcomeController extends Controller
+class WelcomeController extends Controller
 {
     public function welcome()
     {
         return view('welcome',[
-            'categories' => category::all()
+            'categories' => Category::all()
         ]);
     }
 
     public function show_single_product($id)
     {
         return view('show_single_product',[
-            'product' => product::where('id',$id)->first()
+            'product' => Product::where('id',$id)->first()
         ]);
     }
 
     public function show_searched_items($item)
     {
-        $products = product::where('id',$item)->orWhere('name','LIKE','%'.$item.'%')->orWhere('weight',$item)->orWhere('description','LIKE','%'.$item.'%')->orWhere('price',$item)->with('category')->get();
+        $products = Product::where('id',$item)->orWhere('name','LIKE','%'.$item.'%')->orWhere('weight',$item)->orWhere('description','LIKE','%'.$item.'%')->orWhere('price',$item)->with('category')->get();
         return view('searchItem',[
             'products' => $products,
             'searchedItem' => $item
@@ -34,7 +34,7 @@ class welcomeController extends Controller
 
     public function show_searched_item_by_category($id)
     {
-        $category = category::find($id)->first();
+        $category = Category::find($id)->first();
         return view('search',[
             'category' => $category,
         ]);
