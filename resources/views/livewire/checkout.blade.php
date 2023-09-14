@@ -93,7 +93,7 @@
                                     {{ $total_price = $total_price + $product->product->price }}>
                                     <a class="pull-left" href="{{ route('single_product', $product->product->id) }}">
                                         <img class="media-object"
-                                            src="{{ config('app.url') . $product->product->thumbnail }}" alt="Image" />
+                                            src="{{ Storage::url($product->product->thumbnail) }}" alt="Image" />
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading"><a

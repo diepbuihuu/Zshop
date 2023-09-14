@@ -1,7 +1,7 @@
 @forelse ($products as $product)
     <div class="media" {{ $total_price = $total_price + $product->product->price }}>
         <a class="pull-left" href="">
-            <img class="media-object" src="{{ config('app.url') . $product->product->thumbnail }}" alt="image" />
+            <img class="media-object" src="{{ Storage::url($product->product->thumbnail) }}" alt="image" />
         </a>
         <div class="media-body">
             <h4 class="media-heading"><a

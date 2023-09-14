@@ -39,7 +39,7 @@
                                             <tr class="" >
                                                 <td class="">
                                                     <div class="product-info">
-                                                        <img width="80" src="{{ config('app.url') . $product->product->thumbnail }}" alt="" />
+                                                        <img width="80" src="{{ Storage::url($product->product->thumbnail) }}" alt="" />
                                                         <a href="{{ route('show_searched_item_by_name',$product->product->name) }}">{{ $product->product->name }}</a>
                                                     </div>
                                                 </td>

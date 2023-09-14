@@ -54,7 +54,7 @@
                     <div class="col-md-6">
                         <div class="category-box">
                             <a href="{{ route('show_searched_item_by_category', $category->id) }}">
-                                <img src="{{ config('app.url') . $category->thumbnail }}" alt="" />
+                                <img src="{{ Storage::url($category->thumbnail) }}" alt="" />
                                 <div class="content">
                                     <h3 class="">{{ $category->name }}</h3>
                                     <p>{{ $category->description }}</p>
