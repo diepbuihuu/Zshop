@@ -46,7 +46,7 @@ class WelcomeController extends Controller
     public function faq()
     {
         return view('faq',[
-            'faqs' => faq::latest()->get()
+            'faqs' => Faq::latest()->get()
         ]);
     }
 
@@ -66,7 +66,7 @@ class WelcomeController extends Controller
     public function about_us()
     {
         return view('about',[
-            'data' => aboutUs::latest()->first()
+            'data' => AboutUs::latest()->first()
         ]);
     }
 

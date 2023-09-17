@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\aboutUs;
+use App\Models\AboutUs;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AboutUsFactory extends Factory
@@ -12,7 +12,7 @@ class AboutUsFactory extends Factory
      *
      * @var string
      */
-    protected $model = aboutUs::class;
+    protected $model = AboutUs::class;
 
     /**
      * Define the model's default state.

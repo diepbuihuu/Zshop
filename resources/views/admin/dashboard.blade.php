@@ -40,7 +40,7 @@
                         <div class="card bg-info text-white mb-4">
                             <div class="card-body py-5">
                                 <h3>
-                                    <a class="small text-dark nav-link" href="{{ route("admin.messages") }}">{{ "(".App\Models\Contactus::count().") ". __(" Messages") }}
+                                    <a class="small text-dark nav-link" href="{{ route("admin.messages") }}">{{ "(".App\Models\ContactUs::count().") ". __(" Messages") }}
                                     </a>
                                     </h3>
                             </div>

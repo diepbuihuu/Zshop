@@ -15,7 +15,7 @@ class AdminHelperController extends Controller
         return view('admin.user_details',[
             'customer' => User::find($id)->first(),
             'likes' => Likes::where('user_id',$id)->get(),
-            'cartProducts' => cart::where('user_id',$id)->get(),
+            'cartProducts' => Cart::where('user_id',$id)->get(),
         ]);
     }
 

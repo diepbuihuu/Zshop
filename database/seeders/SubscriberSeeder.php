@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\contactus;
-use App\Models\subscriber;
+use App\Models\ContactUs;
+use App\Models\Subscriber;
 use Database\Factories\ContactedUsFactory;
 use Illuminate\Database\Seeder;
 

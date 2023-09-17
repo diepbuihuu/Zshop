@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\contactus;
+use App\Models\ContactUs;
 use Illuminate\Database\Seeder;
 
 class ContactUsSeeder extends Seeder
@@ -14,8 +14,8 @@ class ContactUsSeeder extends Seeder
      */
     public function run()
     {
-        if (contactus::count() == 0) {
-            contactus::factory(1000)->create();
+        if (ContactUs::count() == 0) {
+            ContactUs::factory(1000)->create();
         }
     }
 }

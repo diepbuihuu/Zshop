@@ -167,7 +167,7 @@ class Product extends Component
     {
         return view('livewire.admin.product',[
             'products' => productModel::latest()->paginate(30),
-            'categories' => category::all()
+            'categories' => Category::all()
         ])->layout('admin.layouts.wire_app');
     }
 }

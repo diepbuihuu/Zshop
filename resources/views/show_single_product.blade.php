@@ -51,7 +51,7 @@
                                     </tr>
                                     <tr>
                                         <td>Likes</td>
-                                        <td>{{ App\Models\likes::where('product_id', $product->id)->count() }} Peoples
+                                        <td>{{ App\Models\Likes::where('product_id', $product->id)->count() }} Peoples
                                             Likes This</td>
                                     </tr>
                                 </tbody>

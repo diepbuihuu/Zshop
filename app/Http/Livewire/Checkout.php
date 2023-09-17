@@ -88,7 +88,7 @@ class Checkout extends Component
     public function render()
     {
         return view('livewire.checkout',[
-            'products' => cart::where('user_id',auth()->id())->get()
+            'products' => Cart::where('user_id',auth()->id())->get()
         ]);
     }
 }

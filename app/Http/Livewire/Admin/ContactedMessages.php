@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 use Livewire\WithPagination;
-use App\Models\contactus;
+use App\Models\ContactUs;
 use Livewire\Component;
 
 class ContactedMessages extends Component
@@ -13,7 +13,7 @@ class ContactedMessages extends Component
 
     public function delete($id)
     {
-        contactus::find($id)->delete();
+        ContactUs::find($id)->delete();
     }
 
     public function render()

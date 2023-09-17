@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\contactus;
+use App\Models\ContactUs;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class contactusFactory extends Factory
@@ -12,7 +12,7 @@ class contactusFactory extends Factory
      *
      * @var string
      */
-    protected $model = contactus::class;
+    protected $model = ContactUs::class;
 
     /**
      * Define the model's default state.

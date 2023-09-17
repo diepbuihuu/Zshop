@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\faq;
+use App\Models\Faq;
 use Database\Factories\faqFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -17,8 +17,8 @@ class FaqSeeder extends Seeder
      */
     public function run()
     {
-        if (faq::count() == 0) {
-            faq::factory(50)->create();
+        if (Faq::count() == 0) {
+            Faq::factory(50)->create();
         }
     }
 }

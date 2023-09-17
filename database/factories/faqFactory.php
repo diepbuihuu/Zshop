@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\faq;
+use App\Models\Faq;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class faqFactory extends Factory
@@ -12,7 +12,7 @@ class faqFactory extends Factory
      *
      * @var string
      */
-    protected $model = faq::class;
+    protected $model = Faq::class;
 
     /**
      * Define the model's default state.

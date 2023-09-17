@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\aboutUs;
+use App\Models\AboutUs;
 use Illuminate\Database\Seeder;
 
 class AboutUsSeeder extends Seeder
@@ -14,8 +14,8 @@ class AboutUsSeeder extends Seeder
      */
     public function run()
     {
-        if (aboutus::count() == 0) {
-            aboutUs::factory()->create();
+        if (AboutUs::count() == 0) {
+            AboutUs::factory()->create();
         }
     }
 }
