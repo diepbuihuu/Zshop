@@ -16,8 +16,8 @@ class SubscriberSeeder extends Seeder
      */
     public function run()
     {
-        if (subscriber::count() == 0) {
-            subscriber::factory(1000)->create();
+        if (Subscriber::count() == 0) {
+            Subscriber::factory(1000)->create();
         }
     }
 }

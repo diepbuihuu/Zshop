@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Faq;
+use App\Models\ContactUs;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class faqFactory extends Factory
+class ContactUsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Faq::class;
+    protected $model = ContactUs::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,10 @@ class faqFactory extends Factory
     public function definition()
     {
         return [
-            'question' => $this->faker->sentence(15)." ? ",
-            'answer' => $this->faker->sentence(40),
+            'name' => $this->faker->name(),
+            'email' => $this->faker->safeEmail(),
+            'subject' => $this->faker->sentence(2),
+            'message' => $this->faker->paragraph(2),
         ];
     }
 }

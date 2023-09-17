@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Faq;
-use Database\Factories\faqFactory;
+use Database\Factories\FaqFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
